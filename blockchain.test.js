@@ -118,14 +118,17 @@ describe('Blockchain', () => {
              });
 
              describe('and the chain is valid', () => {
+                 beforeEach(() => {
+                    blockchain.replaceChain(newChain.chain);
+                 })
                  it('replaces the chain', () => {
-                      blockchain.replaceChain(newChain.chain);
+                     
 
                       expect(blockchain.chain).toEqual(newChain.chain);
                  });
 
                  it('logs about the chain replacement', () => {
-                    expect(errorMock).toHaveBeenCalled();
+                    expect(logMock).toHaveBeenCalled();
                  }) 
              })
          })
